@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Hexo Post Test - Hexo</title>
+  <title>Vue3 基本語法 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hexo Post Test">
+            <span class="h2" id="subtitle" title="Vue3 基本語法">
               
             </span>
 
@@ -172,7 +172,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-14 11:19" pubdate>
+      <time datetime="2020-12-14 10:12" pubdate>
         December 14, 2020 am
       </time>
     </span>
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      文章字數：3
+      文章字數：638
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       閱讀時間：
-      1
+      9
        min
     </span>
   
@@ -232,15 +232,47 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hexo Post Test</h1>
+            <h1 style="display: none">Vue3 基本語法</h1>
             
             <div class="markdown-body">
-              <h2 id="test-123"><a href="#test-123" class="headerlink" title="test 123"></a>test 123</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">code</span> <span class="hljs-number">123</span><br></code></pre></td></tr></table></figure>
+              <h2 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h2><p>在<code>Vue3</code>中不在使用<code>data</code>，而是改用<code>setup()</code>函數來進行包裹，並在末尾透過<code>return</code>的方式，丟出需要的資料，讓<code>template</code>可以應用，格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-function"><span class="hljs-title">setup</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123;&#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>為了讓資料成功渲染在字符串模板上，<code>Vue3</code>提供主要兩種寫法，第一個就是<code>ref</code>：</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;pug&quot;</span>&gt;</span></span><br><span class="xml">.wrap </span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">text</span> &#125;&#125;</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript"><span class="hljs-keyword">import</span> &#123; ref &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span></span><br><br><span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="javascript">  <span class="hljs-function"><span class="hljs-title">setup</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">    <span class="hljs-keyword">const</span> text = ref(<span class="hljs-string">&#x27;Hello Vue3!&#x27;</span>)</span><br><br><span class="javascript">    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="javascript">      text.value = <span class="hljs-string">&#x27;Hello Change Pitt&#x27;</span></span><br>    &#125;, 1500)<br>  <br><span class="javascript">    <span class="hljs-keyword">return</span> &#123; text &#125;</span><br>  &#125;<br>&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>在上面的程式碼中，我們可以看到，使用<code>ref</code>前須先做引入的動作，並且聲明變數時，統一使用<code>const</code>，並將要指派的資料包在<code>ref()</code>中。</p>
+<p>需要注意的是，如果我們要重新指派變數為新的值，如上圖<code>setTimeout()</code>，則需要加上<code>.value</code>。</p>
+<p>最後將建立的變數<code>return</code>出去。</p>
+<h2 id="reactive"><a href="#reactive" class="headerlink" title="reactive"></a>reactive</h2><p>和<code>ref</code>與之相對的，則是另一個語法<code>reactive</code>，倘若今天有多筆資料的狀況下，<code>ref</code>的寫法，在<code>return</code>時同樣需要書寫對應的多筆資料，相對會較為麻煩，因此可以透過<code>reactive</code>來改寫：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pf"><span class="hljs-variable">&lt;template lang=&quot;pug&quot;&gt;</span><br>.wrap<br>  div &#123;&#123; <span class="hljs-keyword">state</span>.text &#125;&#125;<br>  div &#123;&#123; <span class="hljs-keyword">state</span>.num &#125;&#125;<br>  div &#123;&#123; <span class="hljs-keyword">state</span>.name &#125;&#125;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs pf"><span class="hljs-variable">&lt;script&gt;</span><br>import &#123; reactive &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>;<br><br>export <span class="hljs-keyword">default</span> &#123;<br>  setup() &#123;<br>    <span class="hljs-keyword">const</span> <span class="hljs-keyword">state</span> = reactive(&#123;<br>      text: &#x27;Player&#x27;,<br>      num: <span class="hljs-number">12</span>,<br>      name: &#x27;Pitt&#x27;,<br>    &#125;);<br><br>    <span class="hljs-built_in">set</span>Timeout(() =&gt; &#123;<br>      <span class="hljs-keyword">state</span>.num = <span class="hljs-number">4</span>;<br>    &#125;, <span class="hljs-number">1500</span>);<br><br>    return &#123; <span class="hljs-keyword">state</span> &#125;;<br>  &#125;,<br>&#125;;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p>同樣是要引入<code>reactive</code>的語法，書寫時先透過<code>const</code>聲明一個變數，再用<code>reactive</code>方法包裹資料，但需要注意<code>reactive</code>內僅接受物件或陣列的格式。</p>
+<p>因為已透過<code>state</code>(可自行命名)來包裹多筆資料，因此在調用資料時(無論是<code>template or script</code>)都需添加<code>state.</code>，也就是過往物件的呈現形式，而<code>return</code>時僅需要回傳<code>state</code>即可。</p>
+<h2 id="toRefs"><a href="#toRefs" class="headerlink" title="toRefs"></a>toRefs</h2><p>但是在<code>template</code>上，如果我們希望能更精簡一些，不要使用<code>object.value</code>的呈現方式的話，可以透過<code>toRefs</code>來進行解構：</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;pug&quot;</span>&gt;</span></span><br><span class="xml">.wrap</span><br><span class="xml">  div </span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">text</span> &#125;&#125;</span><br><span class="xml">  div </span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">num</span> &#125;&#125;</span><br><span class="xml">  div </span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">name</span> &#125;&#125;</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs pf"><span class="hljs-variable">&lt;script&gt;</span><br>import &#123; reactive, <span class="hljs-keyword">to</span>Refs &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>;<br><br>export <span class="hljs-keyword">default</span> &#123;<br>  setup() &#123;<br>    <span class="hljs-keyword">const</span> <span class="hljs-keyword">state</span> = reactive(&#123;<br>      text: &#x27;Player&#x27;,<br>      num: <span class="hljs-number">12</span>,<br>      name: &#x27;Pitt&#x27;,<br>    &#125;);<br><br>    <span class="hljs-built_in">set</span>Timeout(() =&gt; &#123;<br>      <span class="hljs-keyword">state</span>.num = <span class="hljs-number">4</span>;<br>    &#125;, <span class="hljs-number">1500</span>);<br><br>    return &#123; ...<span class="hljs-keyword">to</span>Refs(<span class="hljs-keyword">state</span>) &#125;;<br>  &#125;,<br>&#125;;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p>寫法上較為單純，僅是引入，並在<code>return</code>時進行包裹。</p>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue-js/">Vue.js</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue3/">Vue3</a>
+                    
+                  </div>
                 
               </div>
               
@@ -251,21 +283,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/14/vscode/vscode-setting/">
+                      <a href="/2020/12/14/hexo/hexo-test/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">VSCode 設定(Workspace)</span>
+                        <span class="hidden-mobile">Hexo Post Test</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2020/12/14/vue3/vue3-basic/">
-                        <span class="hidden-mobile">Vue3 基本語法</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
