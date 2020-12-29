@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>VSCode 設定(Workspace) - Hexo</title>
+  <title>ES6 - Destructuring(解構賦值) - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="VSCode 設定(Workspace)">
+            <span class="h2" id="subtitle" title="ES6 - Destructuring(解構賦值)">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-14 15:56" pubdate>
-        December 14, 2020 pm
+      <time datetime="2020-09-01 11:20" pubdate>
+        September 1, 2020 am
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      文章字數：151
+      文章字數：150
     </span>
   
 
@@ -232,13 +232,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">VSCode 設定(Workspace)</h1>
+            <h1 style="display: none">ES6 - Destructuring(解構賦值)</h1>
             
             <div class="markdown-body">
-              <h2 id="setting"><a href="#setting" class="headerlink" title="setting"></a>setting</h2><ul>
-<li>path =&gt; Code/Preferences/settings/Workspace</li>
+              <h2 id="傳統取值的方法"><a href="#傳統取值的方法" class="headerlink" title="傳統取值的方法"></a>傳統取值的方法</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">const</span> <span class="hljs-class"><span class="hljs-keyword">data</span> = &#123;</span><br><span class="hljs-class">  <span class="hljs-title">player</span>: &#x27;<span class="hljs-type">Pitt</span>&#x27;,</span><br><span class="hljs-class">  <span class="hljs-title">str</span>: 20,</span><br><span class="hljs-class">  <span class="hljs-title">agi</span>: 30</span><br><span class="hljs-class">&#125;</span><br><br><span class="hljs-title">console</span>.log(<span class="hljs-class"><span class="hljs-keyword">data</span>.str) // 印出 20</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="解構的做法"><a href="#解構的做法" class="headerlink" title="解構的做法"></a>解構的做法</h2><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sqf">const data = &#123;<br>  <span class="hljs-built_in">player</span>: <span class="hljs-string">&#x27;Pitt&#x27;</span>,<br>  <span class="hljs-built_in">str</span>: <span class="hljs-number">20</span>,<br>  agi: <span class="hljs-number">30</span><br>&#125;<br><br>const &#123; <span class="hljs-built_in">player</span>, <span class="hljs-built_in">str</span>, agi &#125; = data<br><br>console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">player</span>, <span class="hljs-built_in">str</span>, agi) <span class="hljs-comment">// Pitt 20 30</span><br></code></pre></td></tr></table></figure>
+<p>透過<code>key</code>將物件中的資料解構出來。</p>
+<h2 id="將物件嵌進物件"><a href="#將物件嵌進物件" class="headerlink" title="將物件嵌進物件"></a>將物件嵌進物件</h2><ul>
+<li>若有<code>a</code>物件，希望放入<code>b</code>物件中，也可透過解構的方式：</li>
 </ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;editor.fontSize&quot;</span>: <span class="hljs-number">18</span>,<br>  <span class="hljs-comment">// --- Eslint ---</span><br>  <span class="hljs-attr">&quot;editor.formatOnSave&quot;</span>: <span class="hljs-literal">true</span>,  <span class="hljs-comment">// 存檔後自動格式化</span><br>  <span class="hljs-attr">&quot;eslint.alwaysShowStatus&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;eslint.validate&quot;</span>: [<br>    <span class="hljs-string">&quot;javascript&quot;</span>,<br>    <span class="hljs-string">&quot;javascriptreact&quot;</span>,<br>    <span class="hljs-string">&quot;typescript&quot;</span>,<br>    <span class="hljs-string">&quot;typescriptreact&quot;</span>,<br>    <span class="hljs-string">&quot;vue&quot;</span>,<br>  ],<br>  <span class="hljs-attr">&quot;editor.codeActionsOnSave&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;source.fixAll.eslint&quot;</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 存檔時自動排版</span><br>  &#125;,<br>  <span class="hljs-comment">// --- Prettier ---</span><br>  <span class="hljs-attr">&quot;[javascript, typescript]&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;editor.formatOnSave&quot;</span>: <span class="hljs-literal">true</span><br>  &#125;,<br>  <span class="hljs-comment">// 每行寬度</span><br>  <span class="hljs-attr">&quot;prettier.printWidth&quot;</span>: <span class="hljs-number">100</span>,<br>  <span class="hljs-comment">// 使用單引號</span><br>  <span class="hljs-attr">&quot;prettier.singleQuote&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 句尾加上分號</span><br>  <span class="hljs-attr">&quot;prettier.semi&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 字與括號保有空格</span><br>  <span class="hljs-attr">&quot;prettier.bracketSpacing&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;prettier.jsxSingleQuote&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// Vue3 snippets</span><br>  <span class="hljs-attr">&quot;vue3snippets.enable-compile-vue-file-on-did-save-code&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;vue3snippets.singleQuote&quot;</span>: <span class="hljs-literal">true</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">const</span> <span class="hljs-class"><span class="hljs-keyword">data</span> = &#123;</span><br><span class="hljs-class">  <span class="hljs-title">player</span>: &#x27;<span class="hljs-type">Pitt</span>&#x27;,</span><br><span class="hljs-class">  <span class="hljs-title">str</span>: 20,</span><br><span class="hljs-class">  <span class="hljs-title">agi</span>: 30,</span><br><span class="hljs-class">&#125;</span><br><br><span class="hljs-title">const</span> playerData = &#123;<br>  <span class="hljs-class"><span class="hljs-keyword">data</span>,</span><br>  newPlayer: &#x27;<span class="hljs-type">Min&#x27;</span>,<br>&#125;<br><br><span class="hljs-title">console</span>.log(playerData)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>印出以下展開結果：</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs less">&#123;<br>  <span class="hljs-attribute">data</span>: &#123;<br>    <span class="hljs-attribute">player</span>: <span class="hljs-string">&#x27;Pitt&#x27;</span>,<br>    <span class="hljs-attribute">str</span>: <span class="hljs-number">20</span>,<br>    <span class="hljs-attribute">agi</span>: <span class="hljs-number">30</span>,<br>  &#125;,<br>  <span class="hljs-attribute">newPlayer</span>: <span class="hljs-string">&#x27;Min&#x27;</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -248,7 +257,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/VSCode/">VSCode</a>
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ES6/">ES6</a>
                     
                   </div>
                 
@@ -261,9 +272,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/29/python/flask-django/">
+                      <a href="/2020/09/01/javascript/es6/arrow-function/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Flask & Django(Basic Install)</span>
+                        <span class="hidden-mobile">ES6 - Arrow Function(箭頭函式/函數)</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -271,8 +282,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/14/vue/nuxt/initial/">
-                        <span class="hidden-mobile">Nuxt.js - 1(Project Initial)</span>
+                      <a href="/2020/09/01/javascript/es6/scope/">
+                        <span class="hidden-mobile">ES6 - Scope(作用域)</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>VSCode 設定(Workspace) - Hexo</title>
+  <title>Flask &amp; Django(Basic Install) - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="VSCode 設定(Workspace)">
+            <span class="h2" id="subtitle" title="Flask & Django(Basic Install)">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-14 15:56" pubdate>
-        December 14, 2020 pm
+      <time datetime="2020-12-29 00:46" pubdate>
+        December 29, 2020 am
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      文章字數：151
+      文章字數：179
     </span>
   
 
@@ -232,13 +232,27 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">VSCode 設定(Workspace)</h1>
+            <h1 style="display: none">Flask &amp; Django(Basic Install)</h1>
             
             <div class="markdown-body">
-              <h2 id="setting"><a href="#setting" class="headerlink" title="setting"></a>setting</h2><ul>
-<li>path =&gt; Code/Preferences/settings/Workspace</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;editor.fontSize&quot;</span>: <span class="hljs-number">18</span>,<br>  <span class="hljs-comment">// --- Eslint ---</span><br>  <span class="hljs-attr">&quot;editor.formatOnSave&quot;</span>: <span class="hljs-literal">true</span>,  <span class="hljs-comment">// 存檔後自動格式化</span><br>  <span class="hljs-attr">&quot;eslint.alwaysShowStatus&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;eslint.validate&quot;</span>: [<br>    <span class="hljs-string">&quot;javascript&quot;</span>,<br>    <span class="hljs-string">&quot;javascriptreact&quot;</span>,<br>    <span class="hljs-string">&quot;typescript&quot;</span>,<br>    <span class="hljs-string">&quot;typescriptreact&quot;</span>,<br>    <span class="hljs-string">&quot;vue&quot;</span>,<br>  ],<br>  <span class="hljs-attr">&quot;editor.codeActionsOnSave&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;source.fixAll.eslint&quot;</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 存檔時自動排版</span><br>  &#125;,<br>  <span class="hljs-comment">// --- Prettier ---</span><br>  <span class="hljs-attr">&quot;[javascript, typescript]&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;editor.formatOnSave&quot;</span>: <span class="hljs-literal">true</span><br>  &#125;,<br>  <span class="hljs-comment">// 每行寬度</span><br>  <span class="hljs-attr">&quot;prettier.printWidth&quot;</span>: <span class="hljs-number">100</span>,<br>  <span class="hljs-comment">// 使用單引號</span><br>  <span class="hljs-attr">&quot;prettier.singleQuote&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 句尾加上分號</span><br>  <span class="hljs-attr">&quot;prettier.semi&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 字與括號保有空格</span><br>  <span class="hljs-attr">&quot;prettier.bracketSpacing&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;prettier.jsxSingleQuote&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// Vue3 snippets</span><br>  <span class="hljs-attr">&quot;vue3snippets.enable-compile-vue-file-on-did-save-code&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;vue3snippets.singleQuote&quot;</span>: <span class="hljs-literal">true</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h2 id="Install-Python3"><a href="#Install-Python3" class="headerlink" title="Install Python3"></a>Install Python3</h2><h2 id="Install-Flask"><a href="#Install-Flask" class="headerlink" title="Install Flask"></a>Install Flask</h2><h3 id="建立Demo資料夾，並安裝venv環境"><a href="#建立Demo資料夾，並安裝venv環境" class="headerlink" title="建立Demo資料夾，並安裝venv環境"></a>建立<code>Demo</code>資料夾，並安裝<code>venv</code>環境</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><span class="hljs-built_in">mkdir</span> flask-<span class="hljs-built_in">demo</span><br>cd flask-<span class="hljs-built_in">demo</span><br>python3 -m venv venv<br></code></pre></td></tr></table></figure>
+
+<h3 id="透過pip3安裝flask"><a href="#透過pip3安裝flask" class="headerlink" title="透過pip3安裝flask"></a>透過<code>pip3</code>安裝<code>flask</code></h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip3 <span class="hljs-keyword">install</span> Flask<br></code></pre></td></tr></table></figure>
+<p>如果終端機提示<code>pip3</code>版本太舊需要更新，更新指令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">python3 -m pip <span class="hljs-keyword">install</span> <span class="hljs-comment">--upgrade pip</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="快速建立檔案確認flask是否安裝成功"><a href="#快速建立檔案確認flask是否安裝成功" class="headerlink" title="快速建立檔案確認flask是否安裝成功"></a>快速建立檔案確認<code>flask</code>是否安裝成功</h3><p>建立一個<code>hello.py</code>的檔案</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">vim</span> hello.<span class="hljs-keyword">py</span><br></code></pre></td></tr></table></figure>
+<p>並在其中填入以下內容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br>app = Flask(__name__)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello_world</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Hello, World!&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>設定入口檔案</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">FLASK_APP</span>=hello.py<br></code></pre></td></tr></table></figure>
+<p>運行</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">flask <span class="hljs-keyword">run</span><br></code></pre></td></tr></table></figure>
+<p>如果運行正常，這時會看到本地的<code>5000 port</code>被指派調用</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Running</span> <span class="hljs-literal">on</span> http://127.0.0.1:5000/ (Press CTRL+C to quit)<br></code></pre></td></tr></table></figure>
+<p>在瀏覽器中打開本地網址，確認文字是否被正常渲染</p>
+<h2 id="Install-Django"><a href="#Install-Django" class="headerlink" title="Install Django"></a>Install Django</h2>
             </div>
             <hr>
             <div>
@@ -248,7 +262,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/VSCode/">VSCode</a>
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Flask/">Flask</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Django/">Django</a>
                     
                   </div>
                 
@@ -261,18 +279,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/29/python/flask-django/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Flask & Django(Basic Install)</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/14/vue/nuxt/initial/">
-                        <span class="hidden-mobile">Nuxt.js - 1(Project Initial)</span>
+                      <a href="/2020/12/14/vscode/vscode-setting/">
+                        <span class="hidden-mobile">VSCode 設定(Workspace)</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>VSCode 設定(Workspace) - Hexo</title>
+  <title>ES6 - Scope(作用域) - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="VSCode 設定(Workspace)">
+            <span class="h2" id="subtitle" title="ES6 - Scope(作用域)">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-14 15:56" pubdate>
-        December 14, 2020 pm
+      <time datetime="2020-09-01 11:19" pubdate>
+        September 1, 2020 am
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      文章字數：151
+      文章字數：342
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       閱讀時間：
-      2
+      5
        min
     </span>
   
@@ -232,13 +232,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">VSCode 設定(Workspace)</h1>
+            <h1 style="display: none">ES6 - Scope(作用域)</h1>
             
             <div class="markdown-body">
-              <h2 id="setting"><a href="#setting" class="headerlink" title="setting"></a>setting</h2><ul>
-<li>path =&gt; Code/Preferences/settings/Workspace</li>
+              <h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><p>在<code>ES6</code>之前，過往的變數宣告方式，採用<code>var</code>，但其本身容易污染全域環境。</p>
+<ul>
+<li>example 1：</li>
 </ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;editor.fontSize&quot;</span>: <span class="hljs-number">18</span>,<br>  <span class="hljs-comment">// --- Eslint ---</span><br>  <span class="hljs-attr">&quot;editor.formatOnSave&quot;</span>: <span class="hljs-literal">true</span>,  <span class="hljs-comment">// 存檔後自動格式化</span><br>  <span class="hljs-attr">&quot;eslint.alwaysShowStatus&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;eslint.validate&quot;</span>: [<br>    <span class="hljs-string">&quot;javascript&quot;</span>,<br>    <span class="hljs-string">&quot;javascriptreact&quot;</span>,<br>    <span class="hljs-string">&quot;typescript&quot;</span>,<br>    <span class="hljs-string">&quot;typescriptreact&quot;</span>,<br>    <span class="hljs-string">&quot;vue&quot;</span>,<br>  ],<br>  <span class="hljs-attr">&quot;editor.codeActionsOnSave&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;source.fixAll.eslint&quot;</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 存檔時自動排版</span><br>  &#125;,<br>  <span class="hljs-comment">// --- Prettier ---</span><br>  <span class="hljs-attr">&quot;[javascript, typescript]&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;editor.formatOnSave&quot;</span>: <span class="hljs-literal">true</span><br>  &#125;,<br>  <span class="hljs-comment">// 每行寬度</span><br>  <span class="hljs-attr">&quot;prettier.printWidth&quot;</span>: <span class="hljs-number">100</span>,<br>  <span class="hljs-comment">// 使用單引號</span><br>  <span class="hljs-attr">&quot;prettier.singleQuote&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 句尾加上分號</span><br>  <span class="hljs-attr">&quot;prettier.semi&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 字與括號保有空格</span><br>  <span class="hljs-attr">&quot;prettier.bracketSpacing&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;prettier.jsxSingleQuote&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// Vue3 snippets</span><br>  <span class="hljs-attr">&quot;vue3snippets.enable-compile-vue-file-on-did-save-code&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;vue3snippets.singleQuote&quot;</span>: <span class="hljs-literal">true</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) &#123;<br>  <span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;Pitt&#x27;</span><br>&#125;<br><span class="hljs-built_in">console</span>.log(name) <span class="hljs-comment">// 印出 Pitt</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>example 2：</li>
+</ul>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali">var<span class="hljs-built_in"> array </span>= [2, 4, 6]<br>if (true) &#123;<br>  var<span class="hljs-built_in"> array </span>= [2]<br>&#125;<br>console.log(array) // 印出 [2]<br></code></pre></td></tr></table></figure>
+<p>承前面的案例，可以看到<code>var</code>宣告的變數，衝出判斷式的界線，污染了外面的變數。</p>
+<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>與之相反，當我使用了<code>let</code>，則會變成如下：</p>
+<ul>
+<li>example 1：</li>
+</ul>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xquery"><span class="hljs-keyword">if</span> <span class="hljs-built_in">(true</span>) &#123;<br>  <span class="hljs-keyword">let</span><span class="hljs-built_in"> name</span> = <span class="hljs-string">&#x27;Pitt&#x27;</span><br>&#125;<br>console.log<span class="hljs-built_in">(name</span>) // 印出<span class="hljs-built_in"> name</span> <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> defined<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>example 2：</li>
+</ul>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali">let<span class="hljs-built_in"> array </span>= [2, 4, 6]<br>if (true) &#123;<br>  let<span class="hljs-built_in"> array </span>= [2]<br>&#125;<br>console.log(array) // 印出 [2, 4, 6]<br></code></pre></td></tr></table></figure>
+<p>判斷式內的變數，僅在當中作用，而不會傳到外面進行污染。</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><p>和<code>let</code>相同，都會受到<code>function</code>的侷限作用，但不同於<code>let</code>，一經宣告即不得變更。</p>
+<ul>
+<li>example：</li>
+</ul>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">true</span>) &#123;<br>  const <span class="hljs-type">text</span> = <span class="hljs-string">&#x27;game&#x27;</span><br>  <span class="hljs-type">text</span> = <span class="hljs-string">&#x27;new game&#x27;</span><br>  console.log(<span class="hljs-type">text</span>) // error Assignment <span class="hljs-keyword">to</span> <span class="hljs-keyword">constant</span> variable.<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="型別特性"><a href="#型別特性" class="headerlink" title="型別特性"></a>型別特性</h2><p>雖然在<code>JS</code>中，<code>array</code>、<code>object</code>兩個型別，在<code>const</code>的宣告下，一樣不可改變其本質：</p>
+<ul>
+<li>example：</li>
+</ul>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-keyword">const</span> a = &#123; player: <span class="hljs-string">&#x27;Pitt&#x27;</span> &#125;<br>a = <span class="hljs-string">&#x27;Min&#x27;</span><br>console.<span class="hljs-built_in">log</span>(a) // error Assignment <span class="hljs-keyword">to</span> constant variable.<br></code></pre></td></tr></table></figure>
+
+<p>但卻可以填充資料進入這兩種型別：</p>
+<ul>
+<li>example 1：</li>
+</ul>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-keyword">const</span> a = &#123; player: <span class="hljs-string">&#x27;Pitt&#x27;</span> &#125;<br>a.newPlayer = <span class="hljs-string">&#x27;Min&#x27;</span><br>console.<span class="hljs-built_in">log</span>(a) // &#123; player: <span class="hljs-string">&quot;Pitt&quot;</span>, newPlayer: <span class="hljs-string">&quot;Min&quot;</span> &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>example 2：</li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">const</span> b =<span class="hljs-meta"> [1, 2, 3]</span><br><span class="hljs-attribute">b</span>.push(<span class="hljs-number">4</span>)<br><span class="hljs-attribute">console</span>.log(b) //<span class="hljs-meta"> [1, 2, 3, 4]</span><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -248,7 +288,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/VSCode/">VSCode</a>
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ES6/">ES6</a>
                     
                   </div>
                 
@@ -261,21 +303,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/29/python/flask-django/">
+                      <a href="/2020/09/01/javascript/es6/destructuring/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Flask & Django(Basic Install)</span>
+                        <span class="hidden-mobile">ES6 - Destructuring(解構賦值)</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2020/12/14/vue/nuxt/initial/">
-                        <span class="hidden-mobile">Nuxt.js - 1(Project Initial)</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
