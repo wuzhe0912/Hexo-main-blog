@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      文章字數：62
+      文章字數：490
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       閱讀時間：
-      1
+      6
        min
     </span>
   
@@ -235,7 +235,25 @@
             <h1 style="display: none">Vue 語法觀念補充</h1>
             
             <div class="markdown-body">
-              <h2 id="Computed-amp-Methods"><a href="#Computed-amp-Methods" class="headerlink" title="Computed &amp; Methods"></a><code>Computed &amp; Methods</code></h2><p><code>computed</code>會依據計算的資料進行緩存，只要資料的值沒有被更改，<code>computed</code>即不會被重新計算。<br><code>methods</code>沒有緩存的特性，每次都會重新執行，但可以傳入參數進行處理。</p>
+              <h2 id="computed-amp-methods"><a href="#computed-amp-methods" class="headerlink" title="computed &amp; methods"></a><code>computed &amp; methods</code></h2><ul>
+<li><code>computed</code>：會依據計算的資料進行緩存，只要資料的值沒有被更改，<code>computed</code>即不會被重新計算。</li>
+<li><code>methods</code>：沒有緩存的特性，每次都會重新執行，但可以傳入參數進行處理。</li>
+</ul>
+<h2 id="ref-amp-reactive"><a href="#ref-amp-reactive" class="headerlink" title="ref() &amp; reactive()"></a><code>ref() &amp; reactive()</code></h2><ul>
+<li><code>ref()</code>：可以接受任何型態的資料，但是不會對物件或陣列內部的屬性進行監聽。</li>
+<li><code>reactive()</code>：只能接受物件或陣列格式，可以做深層監聽，同時訪問資料時不需要特意添加<code>.value</code>。</li>
+<li>example：</li>
+</ul>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="xml"><span class="hljs-comment">&lt;!-- template --&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;pug&quot;</span>&gt;</span></span><br><span class="xml">.wrap</span><br><span class="xml">  div Ref：</span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">refObj.index</span> &#125;&#125;</span><br><span class="xml">  div Reactive：</span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">num</span> &#125;&#125;</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br><br><span class="xml"><span class="hljs-comment">&lt;!-- script --&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ts&quot;</span>&gt;</span></span><br><span class="xml">import &#123; defineComponent, reactive, ref, toRefs, watch &#125; from &#x27;vue&#x27;;</span><br><br><span class="xml">export default defineComponent(&#123;</span><br><span class="xml">  name: &#x27;test&#x27;,</span><br><span class="xml">  setup() &#123;</span><br><span class="xml">    const refObj = ref(&#123; index: 10 &#125;);</span><br><span class="xml">    const reactiveObj = reactive(&#123; num: 12 &#125;);</span><br><br><span class="xml">    watch(refObj, (newVal) =&gt; &#123;</span><br><span class="xml">      console.log(&#x27;ref&#x27;, newVal);</span><br><span class="xml">    &#125;);</span><br><br><span class="xml">    watch(reactiveObj, (newVal) =&gt; &#123;</span><br><span class="xml">      console.log(&#x27;reactive&#x27;, newVal);</span><br><span class="xml">    &#125;);</span><br><br><span class="xml">    setTimeout(() =&gt; &#123;</span><br><span class="xml">      refObj.value.index = 8;</span><br><span class="xml">      reactiveObj.num = 14;</span><br><span class="xml">    &#125;, 1000);</span><br><br><span class="xml">    return &#123; refObj, ...toRefs(reactiveObj) &#125;;</span><br><span class="xml">  &#125;,</span><br><span class="xml">&#125;);</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p>從<code>console.log()</code>中可以看到<code>reactive</code>監聽到整個物件，因此如果需求上需要監聽整個物件或陣列改變時，我們需要使用<code>reactive</code>，反之，如果我們只是要查看某個<code>key</code>值的變化，那麼<code>ref()</code>也能達成。</p>
+<ul>
+<li>example：</li>
+</ul>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">watch(<br>  () =&gt; refObj.value.index,<br>  (newVal) =&gt; &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ref&#x27;</span>, newVal);<br>  &#125;<br>);<br></code></pre></td></tr></table></figure>
+<p>透過添加一組函式來重新<code>return</code>物件中<code>key</code>的值。</p>
+<h3 id="deep"><a href="#deep" class="headerlink" title="deep"></a>deep</h3><p>如果限制為僅使用<code>ref()</code>方式，且我們無法預期<code>api</code>回傳資料欄位時，我們又需要監聽整個物件時，可以採用<code>deep</code>的方式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml">const data = ref(&#123; player: &#x27;&#x27; &#125;);<br><br><span class="hljs-comment">&lt;!-- deep --&gt;</span><br>watch(<br>  data,<br>  (newVal) =&gt; &#123;<br>    console.log(&#x27;ref&#x27;, newVal);<br>  &#125;,<br>  &#123; deep: true &#125;<br>);<br></code></pre></td></tr></table></figure>
+<p>使用<code>deep</code>的方式，會針對整個物件進行深度掃描，雖然能監聽到變化，但理所當然效能方面是不好的，所以除非不知道該欄位的值，否則並非優先選項。</p>
 
             </div>
             <hr>
