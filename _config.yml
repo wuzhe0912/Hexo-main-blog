@@ -6,14 +6,15 @@
 title: Pitt Wu's Blog
 subtitle: The best time to plant a tree was 20 years ago. The second best time is now.
 description: ''
-keywords: Hexo, FrontEnd, Blog
+keywords: Hexo, FrontEnd, Blog, Vue
 author: Pitt Wu
 language: zh-Tw
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://github.com/wuzhe0912/blog-hexo
+url: https://pittwu-blog.netlify.app
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
