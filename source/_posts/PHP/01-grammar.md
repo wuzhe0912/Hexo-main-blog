@@ -1,6 +1,7 @@
 ---
 title: PHP(01)：環境安裝 & 基礎語法
 date: 2021-05-16
+categories: PHP
 tags: PHP
 ---
 從零開始的`PHP`筆記，先從原生語法起步。

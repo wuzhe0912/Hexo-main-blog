@@ -1,6 +1,7 @@
 ---
 title: NVM 環境設定與指令
 date: 2021-05-01
+categories: Node
 tags: NVM
 ---
 記錄常用`NVM`指令與不同環境下的安裝方式。

@@ -1,6 +1,7 @@
 ---
 title: PHP(02)：陣列操作方法
 date: 2021-05-17
+categories: PHP
 tags: PHP
 ---
 記錄`PHP`操作陣列的`API`。

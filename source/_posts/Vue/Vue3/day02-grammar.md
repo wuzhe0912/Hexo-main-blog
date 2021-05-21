@@ -1,6 +1,7 @@
 ---
 title: Vue.js(3.x) - Day 02：Grammmar
 date: 2021-05-11
+categories: Vue.js
 tags: Vue.js(3.x)
 ---
 了解如何應用`Vue 3`語法。

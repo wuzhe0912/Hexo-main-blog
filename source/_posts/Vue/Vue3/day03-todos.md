@@ -1,6 +1,7 @@
 ---
 title: Vue.js(3.x) - Day 03：Todo App
 date: 2021-05-12
+categories: Vue.js
 tags: Vue.js(3.x)
 ---
 練習實做一個`Todo App`。
@@ -360,5 +361,5 @@ return {
 ```
 簡單調整一下`template`結構再加上些許樣式，最後透過`handleClear()`函式清除陣列，就達到想要的目的。
 
-## Reference
-- [Source Code](https://github.com/wuzhe0912/vue3-components-demo/blob/master/src/components/TodoApp.vue)
+<!-- ## Reference
+- [Source Code](https://github.com/wuzhe0912/vue3-components-demo/blob/master/src/components/TodoApp.vue) -->

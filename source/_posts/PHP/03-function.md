@@ -1,6 +1,7 @@
 ---
 title: PHP(03)：函式與物件
 date: 2021-05-19
+categories: PHP
 tags: PHP
 ---
 關於`PHP`的函式與物件寫法。
