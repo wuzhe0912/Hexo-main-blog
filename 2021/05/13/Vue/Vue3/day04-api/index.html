@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-pitt.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-pitt.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;pittwu-blog.netlify.app&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:true,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script>
+<meta name="description" content="使用Vue 3語法實作串接API(axios)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js(3.x) - Day 04：實作串接 API">
+<meta property="og:url" content="https://pittwu-blog.netlify.app/2021/05/13/Vue/Vue3/day04-api/index.html">
+<meta property="og:site_name" content="Pitt Wu&#39;s Blog">
+<meta property="og:description" content="使用Vue 3語法實作串接API(axios)">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-20T00:15:50.300Z">
+<meta property="article:author" content="Pitt Wu">
+<meta property="article:tag" content="Vue.js(3.x)">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://pittwu-blog.netlify.app/2021/05/13/Vue/Vue3/day04-api/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;pittwu-blog.netlify.app&#x2F;2021&#x2F;05&#x2F;13&#x2F;Vue&#x2F;Vue3&#x2F;day04-api&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;13&#x2F;Vue&#x2F;Vue3&#x2F;day04-api&#x2F;&quot;,&quot;title&quot;:&quot;Vue.js(3.x) - Day 04：實作串接 API&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>Vue.js(3.x) - Day 04：實作串接 API | Pitt Wu's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Pitt Wu's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">The best time to plant a tree was 20 years ago. The second best time is now.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-axios"><span class="nav-number">1.</span> <span class="nav-text">Install axios</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%96%E5%82%99%E9%A0%81%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">準備頁面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BC%E5%8F%AB%E8%B3%87%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">呼叫資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E5%BE%8C%E5%88%87%E6%8F%9B"><span class="nav-number">4.</span> <span class="nav-text">前後切換</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%92%B0%E5%88%87%E6%8F%9B"><span class="nav-number">5.</span> <span class="nav-text">循環切換</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Pitt Wu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Pitt Wu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wuzhe0912" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wuzhe0912" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://pittwu-blog.netlify.app/2021/05/13/Vue/Vue3/day04-api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Pitt Wu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pitt Wu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue.js(3.x) - Day 04：實作串接 API
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-13T00:00:00+08:00">2021-05-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-20 08:15:50" itemprop="dateModified" datetime="2021-05-20T08:15:50+08:00">2021-05-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>使用<code>Vue 3</code>語法實作串接<code>API(axios)</code></p>
+<span id="more"></span>
+<h2 id="Install-axios"><a href="#Install-axios" class="headerlink" title="Install axios"></a>Install axios</h2><p>首先要安裝<code>axios</code>這個常用的<code>plugin</code>，方便我們用於串接<code>API</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add axios</span><br></pre></td></tr></table></figure>
+<p>至於<code>api</code>的部分，我們這邊使用免費的<a target="_blank" rel="noopener" href="https://dog.ceo/dog-api/">Dog API</a>。</p>
+<h2 id="準備頁面"><a href="#準備頁面" class="headerlink" title="準備頁面"></a>準備頁面</h2><p>同樣的，我們先準備一個靜態<code>component</code>頁面<code>DogImage.vue</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">lang</span>=<span class="string">&quot;pug&quot;</span>&gt;</span></span><br><span class="line">.dog-container</span><br><span class="line">  div Dog</span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">name</span>: <span class="string">&#x27;DogImage&#x27;</span>,</span></span><br><span class="line"><span class="javascript">&#125;;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="呼叫資料"><a href="#呼叫資料" class="headerlink" title="呼叫資料"></a>呼叫資料</h2><p>接著我們準備一個<code>call api</code>用的<code>function</code>，我們同樣建立在<code>src/hooks</code>底下：</p>
+<figure class="highlight javascript"><figcaption><span>src/hooks/useURLLoader.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive, toRefs &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getDogImage = <span class="keyword">async</span> (url) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> state = reactive(&#123;</span><br><span class="line">    <span class="attr">loading</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">formData</span>: [],</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> axios</span><br><span class="line">    .get(url)</span><br><span class="line">    .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">      state.formData = response.data;</span><br><span class="line">      state.loading = <span class="literal">false</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(error);</span><br><span class="line">      state.loading = <span class="literal">false</span>;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123; ...toRefs(state) &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; getDogImage &#125;;</span><br></pre></td></tr></table></figure>
+<p>這邊嘗試改用<code>reactive()</code>，另外，為了方便使用時解構，所以我們同時也用了<code>toRefs()</code>，<code>axios</code>這邊考慮到只有<code>call api</code>的<code>js</code>檔會用到，所以就不特別註冊到全域。</p>
+<p>現在我們來改寫<code>DogImage.vue</code>，確保我們從<code>api</code>中拿到的圖片，可以正常渲染到畫面：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">lang</span>=<span class="string">&quot;pug&quot;</span>&gt;</span></span><br><span class="line">.dog-container</span><br><span class="line">  .list-loading(v-if=&quot;loading&quot;) Loading...</span><br><span class="line">  .list-wrap(v-else)</span><br><span class="line">    .list(v-for=&quot;node in data&quot; :key=&quot;node&quot;)</span><br><span class="line">      img(:src=&quot;node&quot;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; reactive, toRefs, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; getDogImage &#125; <span class="keyword">from</span> <span class="string">&#x27;../hooks/useURLLoader.js&#x27;</span>;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">name</span>: <span class="string">&#x27;DogImage&#x27;</span>,</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="title">setup</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> list = reactive(&#123;</span></span><br><span class="line"><span class="javascript">      <span class="attr">loading</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">      <span class="attr">data</span>: [],</span></span><br><span class="line"><span class="javascript">    &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    onMounted(<span class="keyword">async</span> () =&gt; &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> &#123; formData, loading &#125; = <span class="keyword">await</span> getDogImage(</span></span><br><span class="line"><span class="javascript">        <span class="string">&#x27;https://dog.ceo/api/breed/hound/images/random/8&#x27;</span></span></span><br><span class="line"><span class="javascript">      );</span></span><br><span class="line"><span class="javascript">      list.data = formData.value.message;</span></span><br><span class="line"><span class="javascript">      list.loading = loading;</span></span><br><span class="line"><span class="javascript">    &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123; ...toRefs(list) &#125;;</span></span><br><span class="line"><span class="javascript">  &#125;,</span></span><br><span class="line"><span class="javascript">&#125;;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在<code>template</code>中我們預設兩種狀況，拿到資料前，我們會保持<code>loading</code>的狀態，當資料取得後，我們改變<code>loading</code>為<code>false</code>，從而渲染整個圖片列表。同樣的，這邊嘗試使用<code>reactive()</code>而非<code>ref()</code>。至於<code>call api</code>的格式，則根據官網的文件，視個人需求調整。</p>
+<h2 id="前後切換"><a href="#前後切換" class="headerlink" title="前後切換"></a>前後切換</h2><p>再來，雖然我拿到一組圖片列表，但我不希望他們一次全部顯示出來，而是用上一張下一張的方式，依序切換圖片，那麼我該怎麼做呢？</p>
+<figure class="highlight html"><figcaption><span>Template</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.dog-container</span><br><span class="line">  .list-loading(v-if=&quot;loading&quot;) Loading...</span><br><span class="line">  .list-wrap(v-else)</span><br><span class="line">    .list-image(</span><br><span class="line">      v-for=&quot;(node, index) in data&quot;</span><br><span class="line">      :key=&quot;node&quot;</span><br><span class="line">      v-show=&quot;index === imageIndex&quot;</span><br><span class="line">    )</span><br><span class="line">      img(:src=&quot;node&quot;)</span><br><span class="line">  .list-btn</span><br><span class="line">    button.btn-prev(@click=&quot;imagePrev&quot;) Prev</span><br><span class="line">    button.btn-next(@click=&quot;imageNext&quot;) Next</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = reactive(&#123;</span><br><span class="line">  <span class="attr">loading</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">data</span>: [],</span><br><span class="line">  <span class="attr">imageIndex</span>: <span class="number">0</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> imagePrev = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  state.imageIndex--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> imageNext = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  state.imageIndex++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  imagePrev,</span><br><span class="line">  imageNext,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line"><span class="selector-class">.list-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.list-image</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">4px</span> solid <span class="number">#42b983</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.list-btn</span> &#123;</span><br><span class="line">  <span class="selector-tag">button</span> &#123;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">12px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>從上面可以看到，我們需要透過index、v-show來達到切換頁面的效果，首先在原本的state中多增加一個變數imageIndex，預設值為0，意思是我預設取列表中的第一張圖片。另外準備好imagePrev()、imageNext()兩個函式，他們的功能在於觸發時，將imageIndex進行增減。回到template上，我們可以看到列表渲染中，每一筆資料都會有其對應的index，透過改變imageIndex的值來告訴頁面需要渲染列表中的第幾張圖。</p>
+<h2 id="循環切換"><a href="#循環切換" class="headerlink" title="循環切換"></a>循環切換</h2><p>但是這個頁面切換機制，存在明顯的漏洞，當我切換到最後一頁和第一頁時，繼續往下走，必然會無法顯示圖片，因為增減的<code>imageIndex</code>已經超出列表本身，所以我們需要調整一下<code>function</code>，讓它可以無限循環：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> imagePrev = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  state.imageIndex--;</span><br><span class="line">  <span class="keyword">if</span> (state.imageIndex &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    state.imageIndex = state.data.length - <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> imageNext = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  state.imageIndex++;</span><br><span class="line">  <span class="keyword">if</span> (state.imageIndex === state.data.length) &#123;</span><br><span class="line">    state.imageIndex = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>當已經到第一張時，繼續往上一張，代表此時<code>imageIndex</code>已經<code>&lt; 0</code>，所以我們要讓它列表中的最後一張，因為列表第一張的<code>index</code>為<code>0</code>，所以最後一張的<code>index</code>必然是列表長度<code>- 1</code>。相反的，如果已經超出最後一張，那我們則將<code>imageIndex</code>重新指派為第<code>0</code>張。這樣一來，不管是往前或往後，都可以達到無限循環的效果。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue-js-3-x/" rel="tag"># Vue.js(3.x)</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/05/12/Vue/Vue3/day03-todos/" rel="prev" title="Vue.js(3.x) - Day 03：Todo App">
+                  <i class="fa fa-chevron-left"></i> Vue.js(3.x) - Day 03：Todo App
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/05/16/PHP/01-grammar/" rel="next" title="PHP(01)：環境安裝 & 基礎語法">
+                  PHP(01)：環境安裝 & 基礎語法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pitt Wu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-pitt.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-pitt.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;pittwu-blog.netlify.app&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:true,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script>
+<meta name="description" content="在Windows環境下，能使用的終端機選擇有限，Cmder是目前不錯的一個選項。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows：Cmder 設定">
+<meta property="og:url" content="https://pittwu-blog.netlify.app/2021/04/18/Terminal/cmder/index.html">
+<meta property="og:site_name" content="Pitt Wu&#39;s Blog">
+<meta property="og:description" content="在Windows環境下，能使用的終端機選擇有限，Cmder是目前不錯的一個選項。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-18T04:19:47.000Z">
+<meta property="article:modified_time" content="2021-05-27T16:12:47.621Z">
+<meta property="article:author" content="Pitt Wu">
+<meta property="article:tag" content="Cmder">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://pittwu-blog.netlify.app/2021/04/18/Terminal/cmder/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;pittwu-blog.netlify.app&#x2F;2021&#x2F;04&#x2F;18&#x2F;Terminal&#x2F;cmder&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;04&#x2F;18&#x2F;Terminal&#x2F;cmder&#x2F;&quot;,&quot;title&quot;:&quot;Windows：Cmder 設定&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>Windows：Cmder 設定 | Pitt Wu's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Pitt Wu's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">The best time to plant a tree was 20 years ago. The second best time is now.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#install"><span class="nav-number">1.</span> <span class="nav-text">install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#powerline"><span class="nav-number">2.</span> <span class="nav-text">powerline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">3.</span> <span class="nav-text">background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fonts"><span class="nav-number">4.</span> <span class="nav-text">Fonts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tab"><span class="nav-number">5.</span> <span class="nav-text">Tab</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Pitt Wu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Pitt Wu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wuzhe0912" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wuzhe0912" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://pittwu-blog.netlify.app/2021/04/18/Terminal/cmder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Pitt Wu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pitt Wu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows：Cmder 設定
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-18 12:19:47" itemprop="dateCreated datePublished" datetime="2021-04-18T12:19:47+08:00">2021-04-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-28 00:12:47" itemprop="dateModified" datetime="2021-05-28T00:12:47+08:00">2021-05-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Terminal/" itemprop="url" rel="index"><span itemprop="name">Terminal</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在<code>Windows</code>環境下，能使用的終端機選擇有限，<code>Cmder</code>是目前不錯的一個選項。</p>
+<span id="more"></span>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p><a target="_blank" rel="noopener" href="https://cmder.net/">Cmder 下載連結</a><br>若本機已安裝<code>Node</code>，可以下載<code>Mini</code>版本即可，下載解壓縮即可使用。</p>
+<h2 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h2><p>我希望<code>Cmder</code>預設打開時，路徑可以採用<code>powerline</code>形式美化，進入下方連結後，下載<code>zip</code>檔案<br><a target="_blank" rel="noopener" href="https://github.com/AmrEldib/cmder-powerline-prompt">cmder-powerline-prompt 下載連結</a></p>
+<p>將解壓縮的檔案中，副檔名為<code>.lua</code>的檔案，統一放到<code>Cmder/config</code>的資料夾中。重新啟動<code>Cmder</code>可以看到<code>powerline</code>已經出現了。</p>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>在右下角中有一個類似<code>hamburger menu</code>的<code>icon</code>，點開來就可以看到針對<code>Cmder</code>進行各種參數調整，這邊我們先改背景，先下載一張你喜歡的圖片(日後可以隨時替換)，點選左側的<code>General/Background</code>，並將<code>Background image</code>打勾，然後選擇你的圖片路徑，這時候圖片即會替換背景，但這時候圖片的設定沒有置中，解析度也不正確，點選右側<code>Placement</code>的下拉選單，選擇<code>Stretch</code>，即可讓圖片正常顯示。</p>
+<h2 id="Fonts"><a href="#Fonts" class="headerlink" title="Fonts"></a>Fonts</h2><p>點選左側的<code>General/Fonts</code>，調整一下字體大小，我是習慣<code>Size 20</code>，這點因人而異，另外會勾選<code>Bold(粗體)</code>，<code>Italic(斜體增加一些美感)</code>。</p>
+<h2 id="Tab"><a href="#Tab" class="headerlink" title="Tab"></a>Tab</h2><p>點選左側的<code>General/Tab bar</code>，我習慣取消勾選<code>Tabs on button</code>，讓<code>tab</code>回到上方，至於<code>UI</code>則調整到<code>x20</code>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Cmder/" rel="tag"># Cmder</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/04/22/Hexo/01-install/" rel="next" title="Hexo(01)：基本安裝">
+                  Hexo(01)：基本安裝 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pitt Wu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
