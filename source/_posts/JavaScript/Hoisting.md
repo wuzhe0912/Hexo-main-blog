@@ -6,7 +6,7 @@ tags:
   - JavaScript
   - Hoisting
 ---
-理解什麼是`Hoisting(提升)`?
+理解什麼是 Hoisting(提升) ?
 <!--more-->
 ## 原理
 JS 的運行可以拆解為兩階段，分別是創造與執行：
@@ -40,7 +40,7 @@ function getName () {
 // 執行
 getName();
 ```
-但需要注意的是，這種`JS`提升的性質，在表達式時需要注意撰寫順序問題 創造階段 => 函式優先，其次才是變數。
+但需要注意的是，這種 JS 提升的性質，在表達式時需要注意撰寫順序問題 創造階段 => 函式優先，其次才是變數。
 
 ## success
 ``` JavaScript
@@ -117,7 +117,7 @@ func();
 undefined
 local
 ```
-上面的`function`實際運行的狀況如下：
+上面的 function 實際運行的狀況如下：
 ``` JavaScript
 function func() {
   var myName;
@@ -166,7 +166,7 @@ console.log(a === b); // true
 b = undefined;
 console.log(a === b); // false
 ```
-第一階段中，宣告變數但尚未賦值時，預設皆為`undefined`，因此這時兩者相等，結果為`true`。
-第二階段時，`a`被賦值為`null`，而`b`仍是`undefined`，因此兩者不相等，結果為`false`。
-第三階段，`b`也被賦值為`null`，兩者相等，結果為`true`。
-第四階段，`b`被更改為`undefined`，兩者再次不相符，結果為`false`。
+第一階段中，宣告變數但尚未賦值時，預設皆為 undefined，因此這時兩者相等，結果為 true。
+第二階段時， a 被賦值為 null，而 b 仍是 undefined，因此兩者不相等，結果為 false。
+第三階段， b 也被賦值為 null，兩者相等，結果為 true。
+第四階段，b 被更改為 undefined，兩者再次不相符，結果為 false。
