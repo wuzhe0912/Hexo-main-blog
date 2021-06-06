@@ -1,5 +1,5 @@
 ---
-title: Hexo(01)：基本安裝
+title: Hexo：Basic Install
 date: 2021-04-22 19:10:33
 categories: Hexo
 tags: Hexo
@@ -45,7 +45,6 @@ motion:
 ```
 yarn add hexo-browsersync
 ```
-
 
 ## scheme
 打開自身所需的排版樣式，後續調整參數路徑皆在 themes/next 

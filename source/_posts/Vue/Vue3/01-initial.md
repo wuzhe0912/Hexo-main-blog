@@ -1,10 +1,10 @@
 ---
-title: Vue.js(3.x) - Day 01：Initial
+title: Vue.js(3.x)：Initial
 date: 2021-05-10
 categories: Vue.js
 tags: Vue.js(3.x)
 ---
-建立並準備`Vue.js(3.x)`的開發環境。
+建立並準備 Vue.js(3.x) 的開發環境。
 <!--more-->
 ## install command
 ```

@@ -1,5 +1,5 @@
 ---
-title: Hexo(02)：Next Theme
+title: Hexo：Next Theme
 date: 2021-04-22 22:10:33
 categories: Hexo
 tags: Next
@@ -17,4 +17,15 @@ codeblock:
     enable: true
     # Available values: default | flat | mac
     style: mac
+```
+
+## 回到頂部
+打開回到頂部的按鈕顯示百分比的部分，將 scrollpercent 改為 true
+``` JavaScript
+back2top:
+  enable: true
+  # Back to top in sidebar.
+  sidebar: false
+  # Scroll percent label in b2t button.
+  scrollpercent: true
 ```

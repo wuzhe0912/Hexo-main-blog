@@ -365,9 +365,9 @@ codeblock:
   theme:
     light: atom-one-dark
     dark: atom-one-dark
-  prism:
-    light: prism
-    dark: prism-dark
+  # prism:
+  #   light: prism
+  #   dark: prism-dark
   # Add copy button on codeblock
   copy_button:
     enable: true
@@ -379,7 +379,7 @@ back2top:
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:

@@ -1,5 +1,5 @@
 ---
-title: PHP(03)：函式與物件
+title: PHP：函式與物件
 date: 2021-05-19
 categories: PHP
 tags: PHP

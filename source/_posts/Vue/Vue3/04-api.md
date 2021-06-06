@@ -1,5 +1,5 @@
 ---
-title: Vue.js(3.x) - Day 04：實作串接 API
+title: Vue.js(3.x)：實作串接 API
 date: 2021-05-13
 categories: Vue.js
 tags: Vue.js(3.x)

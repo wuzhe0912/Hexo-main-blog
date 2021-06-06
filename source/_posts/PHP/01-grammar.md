@@ -1,5 +1,5 @@
 ---
-title: PHP(01)：環境安裝 & 基礎語法
+title: PHP：環境安裝 & 基礎語法
 date: 2021-05-16
 categories: PHP
 tags: PHP
